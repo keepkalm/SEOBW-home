@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --pink: #F53796;
+  --navy: #000022;
+  --white: #F5F5F5;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Marketing page styles */
+.marketing-page {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Typewriter placeholder animation */
+.typewriter-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.typewriter-text {
+  position: absolute;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: clip-type 20s steps(45, end) infinite;
+}
+
+.typewriter-text:nth-child(1) { animation-delay: 0s; }
+.typewriter-text:nth-child(2) { animation-delay: 4s; }
+.typewriter-text:nth-child(3) { animation-delay: 8s; }
+.typewriter-text:nth-child(4) { animation-delay: 12s; }
+.typewriter-text:nth-child(5) { animation-delay: 16s; }
+
+@keyframes clip-type {
+  0% { clip-path: inset(0 100% 0 0); }
+  2% { clip-path: inset(0 100% 0 0); }
+  12% { clip-path: inset(0 0% 0 0); }
+  18% { clip-path: inset(0 0% 0 0); }
+  20% { clip-path: inset(0 0% 0 0); opacity: 1; }
+  21% { opacity: 0; }
+  100% { opacity: 0; clip-path: inset(0 100% 0 0); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-text {
+    animation: none;
+    clip-path: none;
+    opacity: 0;
+  }
+  .typewriter-text:first-child {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Input type indicator animations */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 1);
+  }
+}
+
+.input-detecting {
+  animation: pulse-border 1s ease-in-out infinite;
+}
+
+/* Result card hover effects */
+.result-card {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.result-card:hover {
+  @apply transform -translate-y-1 shadow-lg shadow-blue-500/10;
+}
+
+/* Score gauge gradients */
+.gauge-excellent {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.gauge-good {
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+}
+
+.gauge-needs-improvement {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.gauge-poor {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}

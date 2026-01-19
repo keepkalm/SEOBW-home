@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Bandwagon - SEO Services That Actually Work | Seattle</title>
+    <meta name="description" content="Free SEO audit, rank tracking, and local SEO tools. No corporate nonsense, just results. Built in Seattle since 2010.">
+    <meta name="keywords" content="SEO, local SEO, SEO services, free SEO audit, rank tracker, Seattle SEO">
+    <link rel="canonical" href="https://seobandwagon.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SEO Bandwagon - SEO Services That Actually Work">
+    <meta property="og:description" content="Free SEO audit, rank tracking, and local SEO tools. No corporate nonsense, just results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seobandwagon.com/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pink: #F53796;
+            --navy: #000022;
+            --white: #F5F5F5;
+            
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            background: rgba(0, 0, 34, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--pink);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: rgba(245, 245, 245, 0.7);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .nav-link.active {
+            color: var(--pink);
+        }
+
+        .nav-cta {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            background: var(--pink);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(245, 55, 150, 0.5);
+        }
+
+        /* Mobile menu button */
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 10vw, 7rem);
+            color: var(--white);
+            letter-spacing: 4px;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 .accent {
+            color: var(--pink);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--pink);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            color: rgba(245, 245, 245, 0.9);
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-proof {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: rgba(245, 245, 245, 0.5);
+            margin-top: 30px;
+        }
+
+        .hero-proof strong {
+            color: var(--pink);
+        }
+
+        /* SEARCH FORM - PILL STYLE */
+        .form-pill {
+            position: relative;
+            border-radius: 100px;
+            padding: 3px;
+            background: var(--pink);
+            box-shadow: 
+                0 0 12px rgba(245, 55, 150, 0.4),
+                0 0 24px rgba(245, 55, 150, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 12px rgba(245, 55, 150, 0.4),
+                    0 0 24px rgba(245, 55, 150, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 0 18px rgba(245, 55, 150, 0.55),
+                    0 0 30px rgba(245, 55, 150, 0.3);
+            }
+        }
+
+        .form-pill .inner {
+            display: flex;
+            background: var(--navy);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .form-pill input {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            flex: 1;
+            padding: 22px 35px;
+            background: transparent;
+            border: none;
+            color: var(--white);
+            outline: none;
+        }
+
+        .form-pill input::placeholder {
+            color: rgba(245, 245, 245, 0.5);
+        }
+
+        .form-pill button {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            background: var(--pink);
+            color: var(--white);
+            padding: 22px 45px;
+            border: none;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .form-pill button:hover {
+            background: #ff4aa5;
+        }
+
+        /* Input wrapper for typewriter */
+        .input-wrapper {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .input-wrapper input {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+        }
+
+        .input-wrapper input:focus + .placeholder-anim,
+        .input-wrapper input:not(:placeholder-shown) + .placeholder-anim {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .placeholder-anim {
+            position: absolute;
+            top: 0;
+            left: 35px;
+            right: 120px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.2s ease;
+            overflow: hidden;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+        }
+
+        .placeholder-anim .text {
+            color: rgba(245, 245, 245, 0.6);
+            white-space: nowrap;
+            position: absolute;
+            clip-path: inset(0 100% 0 0);
+            animation: clip-type 20s steps(45, end) infinite;
+        }
+
+        .placeholder-anim .text:nth-child(1) { animation-delay: 0s; }
+        .placeholder-anim .text:nth-child(2) { animation-delay: 4s; }
+        .placeholder-anim .text:nth-child(3) { animation-delay: 8s; }
+        .placeholder-anim .text:nth-child(4) { animation-delay: 12s; }
+        .placeholder-anim .text:nth-child(5) { animation-delay: 16s; }
+
+        .placeholder-anim .gray {
+            color: rgba(245, 245, 245, 0.4);
+        }
+
+        .placeholder-anim .pink {
+            color: var(--pink);
+            font-weight: 500;
+        }
+
+        .placeholder-anim .text .cursor {
+            color: var(--pink);
+            font-weight: 700;
+            animation: blink-underscore 0.6s step-end infinite;
+        }
+
+        @keyframes clip-type {
+            0% { clip-path: inset(0 100% 0 0); }
+            2% { clip-path: inset(0 100% 0 0); }
+            12% { clip-path: inset(0 0% 0 0); }
+            18% { clip-path: inset(0 0% 0 0); }
+            20% { clip-path: inset(0 0% 0 0); opacity: 1; }
+            21% { opacity: 0; }
+            100% { opacity: 0; clip-path: inset(0 100% 0 0); }
+        }
+
+        @keyframes blink-underscore {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 120px 40px;
+            background: var(--navy);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--white);
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            color: var(--pink);
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: rgba(245, 245, 245, 0.05);
+            padding: 50px;
+            border: 2px solid rgba(245, 55, 150, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--pink);
+            transform: translateY(-5px);
+            background: rgba(245, 245, 245, 0.08);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .service-text {
+            color: rgba(245, 245, 245, 0.9);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .service-link {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            color: var(--pink);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+        }
+
+        /* WHITE PANEL SECTIONS */
+        .white-panel {
+            background: var(--white);
+            padding: 120px 40px;
+        }
+
+        .white-panel .section-title {
+            color: var(--navy);
+        }
+
+        .white-panel .section-subtitle {
+            color: var(--pink);
+        }
+
+        /* STATS */
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 1.25rem;
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 120px 40px;
+            background: var(--navy);
+        }
+
+        .testimonial-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: rgba(245, 245, 245, 0.05);
+            padding: 50px;
+            border-left: 4px solid var(--pink);
+        }
+
+        .testimonial-quote {
+            font-size: 1.25rem;
+            color: rgba(245, 245, 245, 0.95);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: rgba(245, 245, 245, 0.6);
+            font-size: 1rem;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 120px 40px;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            background: var(--navy);
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 6px solid var(--pink);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(245, 55, 150, 0.3);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--pink);
+            color: var(--white);
+            padding: 8px 20px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .pricing-name {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--pink);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-price {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: var(--white);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-period {
+            font-size: 1.25rem;
+            color: rgba(245, 245, 245, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(245, 245, 245, 0.1);
+            color: rgba(245, 245, 245, 0.9);
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: var(--pink);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            padding: 18px 45px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(245, 55, 150, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 3px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 120px 40px;
+            background: var(--navy);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(245, 245, 245, 0.05);
+            border: 2px solid rgba(245, 55, 150, 0.3);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+            padding: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(245, 55, 150, 0.1);
+        }
+
+        .faq-question .toggle {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question .toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 30px;
+        }
+
+        .faq-answer p {
+            color: rgba(245, 245, 245, 0.9);
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            padding: 120px 40px;
+            background: var(--navy);
+            text-align: center;
+            border-top: 4px solid var(--pink);
+            border-bottom: 4px solid var(--pink);
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--white);
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .cta-text {
+            font-size: 1.5rem;
+            color: var(--pink);
+            margin-bottom: 50px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #000000;
+            padding: 100px 40px 40px;
+            border-top: 4px solid var(--pink);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(245, 245, 245, 0.7);
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--pink);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 2px solid rgba(245, 55, 150, 0.3);
+            text-align: center;
+            color: rgba(245, 245, 245, 0.5);
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--white);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            color: var(--pink);
+        }
+
+        .footer-tagline {
+            font-size: 1.25rem;
+            color: var(--pink);
+            margin-bottom: 30px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .form-pill .inner {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+
+            .form-pill {
+                border-radius: 20px;
+            }
+
+            .form-pill button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .placeholder-anim {
+                right: 20px;
+                font-size: 0.85rem;
+            }
+
+            .services-grid,
+            .testimonial-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* REDUCED MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            .form-pill {
+                animation: none;
+            }
+
+            .placeholder-anim .text {
+                animation: none;
+                clip-path: none;
+                opacity: 0;
+            }
+
+            .placeholder-anim .text:first-child {
+                opacity: 1;
+            }
+
+            .placeholder-anim .text .cursor {
+                animation: none;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">SEO BANDWAGON</a>
+            <ul class="nav-links">
+                <li><a href="#services" class="nav-link">SERVICES</a></li>
+                <li><a href="#pricing" class="nav-link">PRICING</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="/blog" class="nav-link">BLOG</a></li>
+            </ul>
+            <a href="#scan" class="nav-cta">FREE AUDIT</a>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="scan">
+        <div class="hero-container">
+            <h1>SEO THAT <span class="accent">ACTUALLY WORKS</span></h1>
+            <p class="hero-subtitle">Free SEO audit. Rank tracking. Local SEO tools.</p>
+            <p class="hero-text">Skip the corporate bureaucracy. Get a free SEO audit in 30 seconds. Track your rankings. Fix what's broken. No sales calls required.</p>
+            
+            <!-- Multi-search form with typewriter animation -->
+            <form class="form-pill" id="scan-form">
+                <div class="inner">
+                    <div class="input-wrapper">
+                        <input type="text" 
+                               id="scan-input"
+                               placeholder=" "
+                               aria-label="Enter a URL, keyword, business name, address, or phone number"
+                               autocomplete="off">
+                        <div class="placeholder-anim" aria-hidden="true">
+                            <span class="text">Enter a URL <span class="gray">(e.g., </span><span class="pink">mysite.com</span><span class="gray">)</span><span class="cursor">_</span></span>
+                            <span class="text">Enter a keyword <span class="gray">(e.g., </span><span class="pink">"plumber near me"</span><span class="gray">)</span><span class="cursor">_</span></span>
+                            <span class="text">Enter a business name <span class="gray">(e.g., </span><span class="pink">Joe's Pizza</span><span class="gray">)</span><span class="cursor">_</span></span>
+                            <span class="text">Enter an address <span class="gray">(e.g., </span><span class="pink">123 Main St</span><span class="gray">)</span><span class="cursor">_</span></span>
+                            <span class="text">Enter a phone number <span class="gray">(e.g., </span><span class="pink">555-123-4567</span><span class="gray">)</span><span class="cursor">_</span></span>
+                        </div>
+                    </div>
+                    <button type="submit">SCAN NOW</button>
+                </div>
+            </form>
+            
+            <p class="hero-proof"><strong>12,847</strong> sites scanned this week • Since 2010 • Seattle, WA</p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2 class="section-title">WHAT WE DO</h2>
+            <p class="section-subtitle">SEO tools and services without the corporate nonsense</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📍</div>
+                <h3 class="service-title">LOCAL SEO</h3>
+                <p class="service-text">Show up in Google Maps. Dominate local search. We optimize your Google Business Profile, build citations across 50+ directories, and track your local rankings by neighborhood.</p>
+                <a href="/local-seo" class="service-link">LEARN MORE →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">RANK TRACKING</h3>
+                <p class="service-text">Daily rank checks for your keywords. Track competitors. Monitor local rankings. Get alerts when you hit page 1. Free for 10 keywords, unlimited on Pro.</p>
+                <a href="/rank-tracker" class="service-link">START TRACKING →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3 class="service-title">TECHNICAL SEO</h3>
+                <p class="service-text">47-point technical audit. Find broken links, missing tags, slow pages. Get a prioritized fix list with time estimates. WordPress automation available.</p>
+                <a href="/technical-seo" class="service-link">RUN AUDIT →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS (WHITE PANEL) -->
+    <section class="white-panel">
+        <div class="section-header">
+            <h2 class="section-title">BY THE NUMBERS</h2>
+            <p class="section-subtitle">Results that speak louder than marketing copy</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">2010</div>
+                <div class="stat-label">FOUNDED IN SEATTLE</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">47</div>
+                <div class="stat-label">POINT SEO AUDIT</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">CITATION DIRECTORIES</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$0</div>
+                <div class="stat-label">TO GET STARTED</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2 class="section-title">WHAT PEOPLE SAY</h2>
+            <p class="section-subtitle">Real feedback from real businesses</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p class="testimonial-quote">"Finally found an SEO tool that shows me exactly what's broken without the enterprise sales pitch. Fixed 23 issues in one afternoon."</p>
+                <div class="testimonial-author">SARAH CHEN</div>
+                <div class="testimonial-role">Owner, Chen's Bakery Seattle</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-quote">"Went from invisible on Google Maps to #2 in the local pack within 90 days. The citation monitoring alone is worth it."</p>
+                <div class="testimonial-author">MIKE RODRIGUEZ</div>
+                <div class="testimonial-role">Rodriguez Plumbing</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-quote">"We switched from Semrush to save money and honestly the local SEO features are better. No regrets."</p>
+                <div class="testimonial-author">ALEX KIM</div>
+                <div class="testimonial-role">Marketing Director, PNW Dental Group</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2 class="section-title">PRICING</h2>
+            <p class="section-subtitle">No hidden fees. No surprise charges. No contracts.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-name">FREE</h3>
+                <div class="pricing-price">$0</div>
+                <div class="pricing-period">forever</div>
+                <ul class="pricing-features">
+                    <li>SEO audits (unlimited scans)</li>
+                    <li>10 keywords tracked</li>
+                    <li>Citation monitoring</li>
+                    <li>Weekly email reports</li>
+                    <li>1 business location</li>
+                </ul>
+                <a href="#scan" class="btn btn-primary" style="width: 100%;">START FREE</a>
+            </div>
+            <div class="pricing-card">
+                <span class="pricing-badge">POPULAR</span>
+                <h3 class="pricing-name">PRO</h3>
+                <div class="pricing-price">$99</div>
+                <div class="pricing-period">/month</div>
+                <ul class="pricing-features">
+                    <li>Everything in Free</li>
+                    <li>Unlimited keywords</li>
+                    <li>Competitor tracking</li>
+                    <li>Unlimited locations</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="/signup?plan=pro" class="btn btn-primary" style="width: 100%;">GO PRO</a>
+            </div>
+            <div class="pricing-card">
+                <h3 class="pricing-name">ENTERPRISE</h3>
+                <div class="pricing-price">CUSTOM</div>
+                <div class="pricing-period">let's talk</div>
+                <ul class="pricing-features">
+                    <li>Everything in Pro</li>
+                    <li>White label reports</li>
+                    <li>API access</li>
+                    <li>Dedicated support</li>
+                    <li>Custom development</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary" style="width: 100%;">CONTACT US</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">QUESTIONS</h2>
+            <p class="section-subtitle">Direct answers, no corporate speak</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    WHAT IS SEO?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>SEO (Search Engine Optimization) makes your website show up higher in Google search results. When someone searches for what you offer, good SEO gets you on page 1 instead of page 10. It includes technical fixes, content optimization, and building your online reputation through reviews and citations.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    WHAT IS LOCAL SEO?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Local SEO gets your business into Google's "map pack" - the 3 businesses shown with a map when someone searches "plumber near me" or "coffee shop downtown." It involves optimizing your Google Business Profile, building citations across directories, getting reviews, and creating location-specific content.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    HOW LONG DOES SEO TAKE?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Technical fixes can show results in days. Ranking improvements typically take 4-8 weeks for less competitive keywords, 3-6 months for competitive terms. Local SEO often moves faster. We track rankings daily so you see every change.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    WHY IS THIS SO CHEAP?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We automated the work. Most SEO agencies charge $1,500-$10,000/month because they have big teams doing manual work. Our tools do 80% of that automatically. You get the results without paying for overhead.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    DO YOU WORK WITH AGENCIES?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Our Enterprise plan includes white label reports, bulk scanning, and API access. You can run audits for clients under your own branding. No "powered by" footers unless you want them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>READY TO FIX YOUR SEO?</h2>
+            <p class="cta-text">Free audit shows what's broken. Free rank tracking shows where you stand. No credit card required.</p>
+            <a href="#scan" class="btn btn-primary">SCAN YOUR SITE NOW</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">SEO BANDWAGON</a>
+                    <p class="footer-tagline">SEO without the corporate nonsense</p>
+                    <p style="color: rgba(245, 245, 245, 0.7); line-height: 1.8;">
+                        Built in Port Townsend, WA since 2010. SEO tools for small businesses who want results, not meetings.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>TOOLS</h3>
+                    <ul class="footer-links">
+                        <li><a href="/seo-audit">SEO Audit</a></li>
+                        <li><a href="/rank-tracker">Rank Tracker</a></li>
+                        <li><a href="/citation-monitor">Citation Monitor</a></li>
+                        <li><a href="/keyword-research">Keyword Research</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>SERVICES</h3>
+                    <ul class="footer-links">
+                        <li><a href="/local-seo">Local SEO</a></li>
+                        <li><a href="/technical-seo">Technical SEO</a></li>
+                        <li><a href="/wordpress-seo">WordPress SEO</a></li>
+                        <li><a href="/seo-consulting">SEO Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>COMPANY</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SEO Bandwagon • Port Townsend, WA • <a href="/privacy" style="color: var(--pink);">Privacy</a> • <a href="/terms" style="color: var(--pink);">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+
+        // Form submission handler (placeholder - connect to actual backend)
+        document.getElementById('scan-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('scan-input').value.trim();
+            if (input) {
+                // Determine input type and redirect to appropriate results page
+                // This is placeholder logic - implement actual routing
+                console.log('Scanning:', input);
+                alert('Scan functionality coming soon! Input: ' + input);
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
