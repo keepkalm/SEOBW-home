@@ -15,7 +15,7 @@ SEO Bandwagon - A full-stack SEO intelligence platform providing unified search 
 - **SEO Data**: DataForSEO API
 - **Charts**: Recharts 2.15.0
 - **Icons**: Lucide React 0.469.0
-- **Deployment**: Netlify with @netlify/plugin-nextjs
+- **Deployment**: Hostinger VPS (PM2 + Nginx)
 
 ## Project Structure
 
