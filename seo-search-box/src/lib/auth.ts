@@ -39,11 +39,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     error: "/auth/error",
   },
   callbacks: {
-    authorized: async ({ auth }) => {
-      // This is called on every route protected by middleware
-      // Return true to allow access, false to redirect to sign in
-      return !!auth;
-    },
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
