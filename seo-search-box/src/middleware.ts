@@ -22,18 +22,6 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes - handled by API route handlers)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (common site files)
-     * - static file extensions (images, fonts, etc.)
-     * 
-     * Note: auth routes (/auth/signin, /auth/error) are matched but the middleware
-     * only redirects protected routes, so no redirect loop occurs
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(ico|png|jpg|jpeg|svg|gif|webp|css|js|woff|woff2|ttf|eot)$).*)",
-  ],
+  // Only run middleware on protected routes
+  matcher: ["/dashboard/:path*", "/history/:path*", "/saved-searches/:path*"],
 };
