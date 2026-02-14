@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Loader2, Globe, Phone, Building2, Hash } from "lucide-react";
+import { Search, Loader2, Globe, Phone, Building2, Hash, MapPin } from "lucide-react";
 import { parseInput, type InputType, type ParsedInput } from "@/lib/parsers/inputParser";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +24,12 @@ const INPUT_TYPE_CONFIG: Record<InputType, { icon: typeof Search; label: string;
     label: "Phone Number",
     color: "text-purple-400",
     bgColor: "bg-purple-500/20",
+  },
+  address: {
+    icon: MapPin,
+    label: "Address",
+    color: "text-pink-400",
+    bgColor: "bg-pink-500/20",
   },
   business: {
     icon: Building2,
@@ -66,9 +72,14 @@ export function SearchBox() {
           type: parsed.type,
         });
 
-        router.push(`/results?${params.toString()}`);
+        const newUrl = `/results?${params.toString()}`;
+        
+        // Use replace + refresh to ensure results update even when already on results page
+        router.replace(newUrl);
+        router.refresh();
       } catch (error) {
         console.error("Search error:", error);
+      } finally {
         setIsLoading(false);
       }
     },

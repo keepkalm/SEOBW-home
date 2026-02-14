@@ -63,6 +63,8 @@ export async function POST(request: NextRequest) {
             return await searchBusiness(query);
           case "phone":
             return await searchPhone(query);
+          case "address":
+            return await searchAddress(query);
           default:
             return await searchKeyword(query);
         }
@@ -562,4 +564,78 @@ async function searchPhone(phone: string) {
       cid: item.cid || null,
     })),
   };
+}
+
+/**
+ * Search for address/location data
+ */
+async function searchAddress(address: string) {
+  const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+
+  if (!GOOGLE_MAPS_API_KEY) {
+    return { geocode: null, nearbyBusinesses: [] };
+  }
+
+  // Check if input is lat/lng
+  const latLngMatch = address.match(/^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$/);
+  let geocodeUrl: string;
+
+  if (latLngMatch) {
+    // Reverse geocode
+    const lat = parseFloat(latLngMatch[1]);
+    const lng = parseFloat(latLngMatch[2]);
+    geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLE_MAPS_API_KEY}`;
+  } else {
+    // Forward geocode
+    geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_MAPS_API_KEY}`;
+  }
+
+  try {
+    const geocodeResponse = await fetch(geocodeUrl);
+    const geocodeData = await geocodeResponse.json();
+
+    if (geocodeData.status !== "OK" || !geocodeData.results?.[0]) {
+      return { geocode: null, nearbyBusinesses: [] };
+    }
+
+    const result = geocodeData.results[0];
+    const location = result.geometry.location;
+
+    // Extract address components
+    const components: Record<string, string> = {};
+    for (const comp of result.address_components || []) {
+      if (comp.types.includes("locality")) components.city = comp.long_name;
+      if (comp.types.includes("administrative_area_level_1")) components.state = comp.short_name;
+      if (comp.types.includes("postal_code")) components.zip = comp.long_name;
+      if (comp.types.includes("country")) components.country = comp.short_name;
+    }
+
+    // Search for nearby businesses
+    const nearbyUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat},${location.lng}&radius=500&key=${GOOGLE_MAPS_API_KEY}`;
+    const nearbyResponse = await fetch(nearbyUrl);
+    const nearbyData = await nearbyResponse.json();
+
+    const nearbyBusinesses = (nearbyData.results || []).slice(0, 10).map((place: Record<string, unknown>) => ({
+      name: place.name,
+      placeId: place.place_id,
+      category: Array.isArray(place.types) ? place.types[0] : "",
+      rating: place.rating || null,
+      reviewCount: place.user_ratings_total || null,
+      distance: "nearby",
+    }));
+
+    return {
+      geocode: {
+        formattedAddress: result.formatted_address,
+        lat: location.lat,
+        lng: location.lng,
+        placeId: result.place_id,
+        components,
+      },
+      nearbyBusinesses,
+    };
+  } catch (error) {
+    console.error("Address search error:", error);
+    return { geocode: null, nearbyBusinesses: [] };
+  }
 }

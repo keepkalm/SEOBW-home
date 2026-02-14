@@ -18,7 +18,7 @@ import { eq, desc, and, gte, lte, sql, inArray } from "drizzle-orm";
 // Types
 // ============================================
 
-export type InputType = "keyword" | "url" | "phone" | "business";
+export type InputType = "keyword" | "url" | "phone" | "business" | "address";
 
 export interface SaveSearchParams {
   userId?: string;
