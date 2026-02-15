@@ -236,37 +236,61 @@ export async function runGridScan(
   const { gridSize = 5, radiusMiles = 5, delayMs = 100 } = options;
 
   const grid = generateGrid(centerLat, centerLng, gridSize, radiusMiles);
-  const results: GridScanResult[] = [];
+  const results: GridScanResult[] = new Array(grid.length);
 
-  for (const point of grid) {
-    try {
-      const mapResults = await queryMapsPoint(keyword, point.lat, point.lng);
-      const { rank, item } = findBusinessRank(mapResults, businessName, placeId);
+  // Run grid point requests with bounded concurrency to avoid long sequential runtimes.
+  const MAX_CONCURRENCY = 3;
+  const concurrency = Math.min(MAX_CONCURRENCY, grid.length || 1);
+  let currentIndex = 0;
 
-      const topOrganic = mapResults.find((r) => r.type !== "maps_paid_item");
+  const workers: Promise<void>[] = [];
 
-      results.push({
-        ...point,
-        rank,
-        topResult: topOrganic?.title || null,
-        businessFound: item?.title || null,
-      });
-
-      // Rate limiting
-      if (delayMs > 0) {
-        await new Promise((r) => setTimeout(r, delayMs));
+  const runWorker = async () => {
+    // Each worker processes multiple grid points in sequence.
+    // This preserves the existing rate-limiting delay while allowing
+    // several points to be processed in parallel.
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const index = currentIndex++;
+      if (index >= grid.length) {
+        return;
       }
-    } catch (err) {
-      console.error(`Error at point (${point.row},${point.col}):`, err);
-      results.push({
-        ...point,
-        rank: null,
-        topResult: null,
-        businessFound: null,
-      });
+
+      const point = grid[index];
+      try {
+        const mapResults = await queryMapsPoint(keyword, point.lat, point.lng);
+        const { rank, item } = findBusinessRank(mapResults, businessName, placeId);
+
+        const topOrganic = mapResults.find((r) => r.type !== "maps_paid_item");
+
+        results[index] = {
+          ...point,
+          rank,
+          topResult: topOrganic?.title || null,
+          businessFound: item?.title || null,
+        };
+
+        // Rate limiting
+        if (delayMs > 0) {
+          await new Promise((r) => setTimeout(r, delayMs));
+        }
+      } catch (err) {
+        console.error(`Error at point (${point.row},${point.col}):`, err);
+        results[index] = {
+          ...point,
+          rank: null,
+          topResult: null,
+          businessFound: null,
+        };
+      }
     }
+  };
+
+  for (let i = 0; i < concurrency; i++) {
+    workers.push(runWorker());
   }
 
+  await Promise.all(workers);
   // Calculate stats
   const ranks = results.map((r) => r.rank).filter((r): r is number => r !== null);
   const averageRank =
