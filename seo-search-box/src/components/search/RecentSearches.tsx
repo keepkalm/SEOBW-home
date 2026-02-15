@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Clock, Globe, Hash, Phone, Building2, ArrowRight } from "lucide-react";
+import { Clock, Globe, Hash, Phone, Building2, MapPin, ArrowRight } from "lucide-react";
 import { cn, formatRelativeDate } from "@/lib/utils";
 import type { InputType } from "@/lib/parsers/inputParser";
 
@@ -18,6 +18,7 @@ const TYPE_ICONS: Record<InputType, typeof Hash> = {
   url: Globe,
   phone: Phone,
   business: Building2,
+  address: MapPin,
 };
 
 const TYPE_COLORS: Record<InputType, string> = {
@@ -25,6 +26,7 @@ const TYPE_COLORS: Record<InputType, string> = {
   url: "text-green-400",
   phone: "text-purple-400",
   business: "text-orange-400",
+  address: "text-pink-400",
 };
 
 export function RecentSearches() {

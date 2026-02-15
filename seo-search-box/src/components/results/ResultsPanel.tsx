@@ -3,6 +3,7 @@ import { KeywordResults } from "./KeywordResults";
 import { DomainResults } from "./DomainResults";
 import { BusinessResults } from "./BusinessResults";
 import { PhoneResults } from "./PhoneResults";
+import { AddressResults } from "./AddressResults";
 
 interface ResultsPanelProps {
   query: string;
@@ -37,6 +38,8 @@ export async function ResultsPanel({ query, type }: ResultsPanelProps) {
         return <BusinessResults data={data} query={query} />;
       case "phone":
         return <PhoneResults data={data} query={query} />;
+      case "address":
+        return <AddressResults data={data} query={query} />;
       default:
         return <KeywordResults data={data} query={query} />;
     }
